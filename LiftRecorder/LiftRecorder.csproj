@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201705270454042_AddLiftClass1.Designer.cs">
       <DependentUpon>201705270454042_AddLiftClass1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705270604251_AddUsersliftClass.cs" />
+    <Compile Include="Migrations\201705270604251_AddUsersliftClass.Designer.cs">
+      <DependentUpon>201705270604251_AddUsersliftClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -217,6 +221,7 @@
     <Compile Include="Models\Lift.cs" />
     <Compile Include="Models\LiftType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UsersLift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270454042_AddLiftClass1.resx">
       <DependentUpon>201705270454042_AddLiftClass1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270604251_AddUsersliftClass.resx">
+      <DependentUpon>201705270604251_AddUsersliftClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

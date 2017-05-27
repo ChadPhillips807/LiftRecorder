@@ -34,7 +34,7 @@ Add DbSet to IndentityModels.cs -- DONE
 Add Migration AddLiftClass -- DONE
 Update Database -- DONE
 
--- Commit & Push
+-- Commit & Push -- DONE
 
 4. Create Class UserLift.cs
 
