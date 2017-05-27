@@ -22,6 +22,7 @@ namespace LiftRecorder.Models
     {
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<LiftType> LiftTypes { get; set; }
+        public DbSet<Lift> Lifts { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

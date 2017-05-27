@@ -26,13 +26,13 @@ Add DbSet to IndentityModels.cs -- DONE
 Add Migration AddLiftTypeClass -- DONE
 Update Database -- DONE
 
--- Commit & Push
+-- Commit & Push -- DONE
 
-3. Create Class Lift.cs
+3. Create Class Lift.cs -- DONE
 
-Add DbSet to IndentityModels.cs
-Add Migration AddLiftClass
-Update Database
+Add DbSet to IndentityModels.cs -- DONE
+Add Migration AddLiftClass -- DONE
+Update Database -- DONE
 
 -- Commit & Push
 

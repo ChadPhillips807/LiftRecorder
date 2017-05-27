@@ -202,10 +202,19 @@
     <Compile Include="Migrations\201705262330369_AddLiftTypeClass.Designer.cs">
       <DependentUpon>201705262330369_AddLiftTypeClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705262339526_AddLiftClass.cs" />
+    <Compile Include="Migrations\201705262339526_AddLiftClass.Designer.cs">
+      <DependentUpon>201705262339526_AddLiftClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705270454042_AddLiftClass1.cs" />
+    <Compile Include="Migrations\201705270454042_AddLiftClass1.Designer.cs">
+      <DependentUpon>201705270454042_AddLiftClass1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Lift.cs" />
     <Compile Include="Models\LiftType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -293,6 +302,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705262330369_AddLiftTypeClass.resx">
       <DependentUpon>201705262330369_AddLiftTypeClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705262339526_AddLiftClass.resx">
+      <DependentUpon>201705262339526_AddLiftClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270454042_AddLiftClass1.resx">
+      <DependentUpon>201705270454042_AddLiftClass1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
