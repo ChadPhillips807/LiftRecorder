@@ -191,6 +191,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +214,22 @@
     <Compile Include="Migrations\201705270604251_AddUsersliftClass.cs" />
     <Compile Include="Migrations\201705270604251_AddUsersliftClass.Designer.cs">
       <DependentUpon>201705270604251_AddUsersliftClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705270639565_UpdateLiftTypeDB.cs" />
+    <Compile Include="Migrations\201705270639565_UpdateLiftTypeDB.Designer.cs">
+      <DependentUpon>201705270639565_UpdateLiftTypeDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705270654494_PopulateLiftsDB.cs" />
+    <Compile Include="Migrations\201705270654494_PopulateLiftsDB.Designer.cs">
+      <DependentUpon>201705270654494_PopulateLiftsDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705270710151_PopulateAppUsersDB.cs" />
+    <Compile Include="Migrations\201705270710151_PopulateAppUsersDB.Designer.cs">
+      <DependentUpon>201705270710151_PopulateAppUsersDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705270717316_PopulateUsersLiftsDB.cs" />
+    <Compile Include="Migrations\201705270717316_PopulateUsersLiftsDB.Designer.cs">
+      <DependentUpon>201705270717316_PopulateUsersLiftsDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -282,6 +299,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +334,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270604251_AddUsersliftClass.resx">
       <DependentUpon>201705270604251_AddUsersliftClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270639565_UpdateLiftTypeDB.resx">
+      <DependentUpon>201705270639565_UpdateLiftTypeDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270654494_PopulateLiftsDB.resx">
+      <DependentUpon>201705270654494_PopulateLiftsDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270710151_PopulateAppUsersDB.resx">
+      <DependentUpon>201705270710151_PopulateAppUsersDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705270717316_PopulateUsersLiftsDB.resx">
+      <DependentUpon>201705270717316_PopulateUsersLiftsDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

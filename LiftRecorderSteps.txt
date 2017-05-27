@@ -1,45 +1,16 @@
-TODO: After each migration and DB update, check the tables to verify foriegn keys were established
-Mosh says, "In Code First workflow we start with the code. Every time we modify our domain model by adding a class or modifying one of the existing ones we create a migration and then run it on the database."
-
 TODO: Find out where and why we add DbContext to the Controller. This may have been the issue last night. Example in Vidly CustomerController.cs
 -- He does this to get a list of customers from the database.. I don't need a list of -- users from the database. I need a list of the current users recent lifts. Should -- gstart by getting just the last lifting session by using the date field
 
 -- private ApplicationDbContext _context;
 
-TODO: Need to add the following to IdentityModels:
-// At what point do these need to be added? Before the initial
-// migration? What does Mosh do here?
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<LiftType> LiftTypes { get; set; }
-        public DbSet<Lift> Lifts { get; set; }
-        public DbSet<UsersLift> UsersLifts { get; set; }
-----------------------------------------------------------------------------------------
-1. Enable Migrations -- DONE
+-Add Data to LiftTypes DB -- DONE
+-Add data to Lifts DB -- DONE
+-Add data to AppUsers DB
+-Add data to UsersLifts DB
 
-Add DbSet to IndentityModels.cs
-Add Migration InitialModel -- DONE
-Update Database -- DONE
+//Update the LiftTypeDB
+Sql("INSERT INTO LiftTypes (Name) VALUES ('Chest')");
+Sql("INSERT INTO LiftTypes (Name) VALUES ('Back')");
+Sql("INSERT INTO LiftTypes (Name) VALUES ('Legs')");
+Sql("INSERT INTO LiftTypes (Name) VALUES ('Shoulders')");
 
-2. Create Class LiftType.cs -- DONE
-
-Add DbSet to IndentityModels.cs -- DONE
-Add Migration AddLiftTypeClass -- DONE
-Update Database -- DONE
-
--- Commit & Push -- DONE
-
-3. Create Class Lift.cs -- DONE
-
-Add DbSet to IndentityModels.cs -- DONE
-Add Migration AddLiftClass -- DONE
-Update Database -- DONE
-
--- Commit & Push -- DONE
-
-4. Create Class UserLift.cs
-
-Add DbSet to IndentityModels.cs
-Add Migration AddUserLiftClass
-Update Database
-
--- Commit & Push
