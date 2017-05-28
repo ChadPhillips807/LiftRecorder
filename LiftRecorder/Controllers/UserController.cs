@@ -9,23 +9,29 @@ namespace LiftRecorder.Controllers
 {
     public class UserController : Controller
     {
+        // Need DbContext to access the database
         private ApplicationDbContext _context;
 
         public UserController()
         {
+            // DbContext needs to be initialized in the constructor
             _context = new ApplicationDbContext();
         }
 
+
         protected override void Dispose(bool disposing)
         {
-            base.Dispose(disposing);
+            _context.Dispose();
         }
 
         // GET: User
         public ActionResult Index()
         {
             //TODO: Finish this portion!! Gotta sleep.
-            return View();
+            var appUsers = _context.AppUsers;
+            return View(appUsers);
         }
+
+        
     }
 }
