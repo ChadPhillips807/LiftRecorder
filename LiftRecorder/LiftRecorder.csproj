@@ -231,12 +231,19 @@
     <Compile Include="Migrations\201705270717316_PopulateUsersLiftsDB.Designer.cs">
       <DependentUpon>201705270717316_PopulateUsersLiftsDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705292352077_AddLiftTypeAsStringToLift.cs" />
+    <Compile Include="Migrations\201705292352077_AddLiftTypeAsStringToLift.Designer.cs">
+      <DependentUpon>201705292352077_AddLiftTypeAsStringToLift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705292354549_RemoveLiftTypeDbSet.cs" />
+    <Compile Include="Migrations\201705292354549_RemoveLiftTypeDbSet.Designer.cs">
+      <DependentUpon>201705292354549_RemoveLiftTypeDbSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lift.cs" />
-    <Compile Include="Models\LiftType.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UsersLift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -346,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705270717316_PopulateUsersLiftsDB.resx">
       <DependentUpon>201705270717316_PopulateUsersLiftsDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705292352077_AddLiftTypeAsStringToLift.resx">
+      <DependentUpon>201705292352077_AddLiftTypeAsStringToLift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705292354549_RemoveLiftTypeDbSet.resx">
+      <DependentUpon>201705292354549_RemoveLiftTypeDbSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

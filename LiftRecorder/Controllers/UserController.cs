@@ -28,6 +28,7 @@ namespace LiftRecorder.Controllers
         public ActionResult Index()
         {
             //TODO: Finish this portion!! Gotta sleep.
+            //Problem here is we are getting a list of users and we only want one, the user that is logged in
             var appUsers = _context.AppUsers;
             return View(appUsers);
         }

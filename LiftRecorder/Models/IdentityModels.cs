@@ -21,7 +21,7 @@ namespace LiftRecorder.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<LiftType> LiftTypes { get; set; }
+        //public DbSet<LiftType> LiftTypes { get; set; }
         public DbSet<Lift> Lifts { get; set; }
         public DbSet<UsersLift> UsersLifts { get; set; }
 
