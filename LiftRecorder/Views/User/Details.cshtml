@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LiftRecorder.Models.AppUser>
+@{
+    ViewBag.Title = "Lifts";
+}
+
+@*<h2>@Model.FirstName + " " + @Model.LastName</h2>*@
+<h2>Lifts</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Lift</th>
+            <th>Reps</th>
+            <th>Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lift in Model.UsersLifts)
+        {
+            <tr>
+                <td>@lift.Lift.Name</td>
+                <td>@lift.Reps</td>
+                <td>@lift.Weight</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

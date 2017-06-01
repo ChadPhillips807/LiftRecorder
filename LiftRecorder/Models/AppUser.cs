@@ -16,7 +16,8 @@ namespace LiftRecorder.Models
 
         // May need this Navigation Property
         // This should link AppUser to the lifts they have performed
-        //public ICollection<UsersLift> UsersLifts { get; set; }
+        //public UsersLift UsersLift { get; set; }
+        public ICollection<UsersLift> UsersLifts { get; set; }
 
     }
 }

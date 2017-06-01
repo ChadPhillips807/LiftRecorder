@@ -1,0 +1,37 @@
+﻿@model LiftRecorder.ViewModels.LiftLoggerViewModel
+@{
+    ViewBag.Title = Model.AppUser.FirstName;
+}
+
+<h2>@Model.AppUser.FirstName @Model.AppUser.LastName Lift Log</h2>
+
+@if (Model.AppUser.UsersLifts == null)
+{
+    <p>You have no lifts on record.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Lift</th>
+                <th>Weight x Reps</th>
+                @*<th>Reps</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lift in Model.AppUser.UsersLifts)
+            {
+                <tr>
+                    <td>@lift.Lift.Name</td>
+                    <td>@lift.Weight x @lift.Reps</td>
+                    @*<td>@lift.Reps</td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+

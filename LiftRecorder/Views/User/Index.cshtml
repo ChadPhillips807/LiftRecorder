@@ -1,7 +1,27 @@
 ﻿@model IEnumerable<LiftRecorder.Models.AppUser>
 @{
-    ViewBag.Title = Model.FirstName;
+    ViewBag.Title = "Users";
 }
 
-<h2>Model.FirstName</h2>
+<h2>Users</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appUser in Model)
+            {
+            <tr>
+                <td>@Html.ActionLink(appUser.FirstName + " " + appUser.LastName, "Details", "User", new { id = appUser.AppUserId }, null)</td>
+                <td>@appUser.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
 
