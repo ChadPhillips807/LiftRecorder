@@ -1,36 +1,90 @@
 ﻿@model LiftRecorder.ViewModels.LiftLoggerViewModel
 @{
-    ViewBag.Title = Model.AppUser.FirstName;
+    ViewBag.Title = Model.AppUser.FirstName + " " + Model.AppUser.LastName;
 }
 
-<h2>@Model.AppUser.FirstName @Model.AppUser.LastName Lift Log</h2>
+<h2>@Model.AppUser.FirstName @Model.AppUser.LastName Lift Journal</h2>
 
-@if (Model.AppUser.UsersLifts == null)
-{
-    <p>You have no lifts on record.</p>
-}
-else
-{
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Lift</th>
-                <th>Weight x Reps</th>
-                @*<th>Reps</th>*@
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var lift in Model.AppUser.UsersLifts)
+@*<div class="nav">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#pane1" data-toggle="tab">Dashboard</a></li>
+        <li><a href="#pane2" data-toggle="tab">Lift Entry</a></li>
+        <li><a href="#pane3" data-toggle="tab">Previous</a></li>
+    </ul>
+</div>*@
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" class="nav_link" data_id="1" href="#home">Dashboard</a></li>
+        <li><a data-toggle="tab" class="nav_link" data_id="2" href="#menu1">Lift Entry</a></li>
+        <li><a data-toggle="tab" class="nav_link" data_id="3" href="#menu2">Previous</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            @if (Model.AppUser.UsersLifts == null)
             {
-                <tr>
-                    <td>@lift.Lift.Name</td>
-                    <td>@lift.Weight x @lift.Reps</td>
-                    @*<td>@lift.Reps</td>*@
-                </tr>
+                <p>You have no lifts on record.</p>
             }
-        </tbody>
-    </table>
-}
+            else
+            {
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Lift</th>
+                            <th>Weight x Reps</th>
+                            @*<th>Reps</th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var lift in Model.AppUser.UsersLifts)
+                        {
+                            <tr>
+                                <td>@lift.Lift.Name</td>
+                                <td>@lift.Weight x @lift.Reps</td>
+                                @*<td>@lift.Reps</td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            <br />
+            <div id="ProductsDiv1">
+            </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            @using (Html.BeginForm("SaveLift", "User"))
+            {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ChestLifts)
+                        @Html.DropDownListFor((m => m.ChestLifts), new SelectList(Model.ChestLifts, "LiftId", "Name"), "", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BackLifts)
+                        @Html.DropDownListFor((m => m.BackLifts), new SelectList(Model.BackLifts, "LiftId", "Name"), "", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LegLifts)
+                        @Html.DropDownListFor((m => m.LegLifts), new SelectList(Model.LegLifts, "LiftId", "Name"), "", new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">                        
+                        @Html.LabelFor(m => m.ShoulderLifts)
+                        @Html.DropDownListFor((m => m.ShoulderLifts), new SelectList(Model.ShoulderLifts, "LiftId", "Name"), "", new { @class = "hidden" })
+                    </div>
+                    
+            }
+            <div id="ProductsDiv2">
+            </div>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p><br />
+            <div id="ProductsDiv3">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

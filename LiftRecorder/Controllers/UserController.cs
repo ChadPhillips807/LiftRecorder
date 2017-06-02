@@ -30,16 +30,29 @@ namespace LiftRecorder.Controllers
             var appUser = _context.AppUsers.SingleOrDefault(u => u.AppUserId == id);
             //var usersLifts = _context.UsersLifts.Include("UsersLifts");
             appUser.UsersLifts = _context.UsersLifts.ToList();
+            IEnumerable<Lift> chestLifts = _context.Lifts.Where(c => c.LiftType == "Chest");
+            IEnumerable<Lift> backLifts = _context.Lifts.Where(c => c.LiftType == "Back");
+            IEnumerable<Lift> legLifts = _context.Lifts.Where(c => c.LiftType == "Legs");
+            IEnumerable<Lift> shoulderLifts = _context.Lifts.Where(c => c.LiftType == "Shoulders");
+
             var lifts = _context.Lifts.ToList();
 
             var viewModel = new LiftLoggerViewModel
             {
                 AppUser = appUser,
-                //UsersLifts = usersLifts,
+                ChestLifts = chestLifts,
+                BackLifts = backLifts,
+                LegLifts = legLifts,
+                ShoulderLifts = shoulderLifts,
                 Lifts = lifts
             };
 
             return View(viewModel);
+        }
+
+        public ActionResult SaveLift()
+        {
+            return View();
         }
 
         // GET: User
@@ -54,27 +67,7 @@ namespace LiftRecorder.Controllers
 
         public ViewResult Details(int id)
         {
-            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();.Include(c => c.UserLifts)
-            //----------
-            //var appUser = _context.AppUsers.SingleOrDefault(u => u.AppUserId == id).UsersLifts;  //NOT WORKING
-            //-----------
-            //var appUser = from u in _context.AppUsers
-            //where u.AppUserId == id
-            //select new AppUser
-            //{
-            //    FirstName = u.FirstName,
-            //    LastName = u.LastName,
-            //    Email = u.Email,
-            //    UsersLifts = u.UsersLifts
-            //};
-            //-------------
-            //var appUser = (from u in _context.AppUsers
-            //               where u.AppUserId == id
-            //               select u);
-            //-----------
-            //var appUser = _context.AppUsers.SingleOrDefault(u => u.AppUserId == id);
-            //------------
-            var appUser = _context.UsersLifts.SingleOrDefault(u => u.AppUserId == id); //Does get the user's lifts via the id.
+            var appUser = _context.UsersLifts.SingleOrDefault(u => u.AppUserId == id); //gets the user's lifts via the id.
             return View(appUser);
         }
 
