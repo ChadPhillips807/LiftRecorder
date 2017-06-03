@@ -6,7 +6,60 @@
     <title>@ViewBag.Title - Lift Logs</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <!-- Example jQuery Reference -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Your jQuery code -->
+    <script language="javascript" type="text/javascript">
+        function checkboxclick() {
+            //Chest
+            if ($("#cbChestLifts").is(':checked')) {
+                $("#divpass1").show(500);
+            }
+            else {
+               $("#divpass1").hide(500);
+            }
 
+            //Back
+            if ($("#cbBackLifts").is(':checked')) {
+                $("#divpass2").show(500);
+            }
+            else {
+                $("#divpass2").hide(500);
+            }
+
+            //Legs
+            if ($("#cbLegLifts").is(':checked')) {
+                $("#divpass3").show(500);
+            }
+            else {
+                $("#divpass3").hide(500);
+            }
+
+            //Shoulders
+            if ($("#cbShoulderLifts").is(':checked')) {
+                $("#divpass4").show(500);
+            }
+            else {
+                $("#divpass4").hide(500);
+            }
+
+            //Arms
+            if ($("#cbArmLifts").is(':checked')) {
+                $("#divpass5").show(500);
+            }
+            else {
+                $("#divpass5").hide(500);
+            }
+        }
+
+        window.onload = function onpageloadhidecontrols() {
+            document.getElementById('divpass1').style.display = 'none';
+            document.getElementById('divpass2').style.display = 'none';
+            document.getElementById('divpass3').style.display = 'none';
+            document.getElementById('divpass4').style.display = 'none';
+            document.getElementById('divpass5').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">

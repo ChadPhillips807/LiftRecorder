@@ -15,6 +15,11 @@ namespace LiftRecorder.ViewModels
         public IEnumerable<Lift> LegLifts { get; set; }
         public IEnumerable<Lift> BackLifts { get; set; }
         public IEnumerable<Lift> ShoulderLifts { get; set; }
+        public IEnumerable<Lift> ArmLifts { get; set; }
+
+        //UserLift will hold a single UserLift entry that will be entered into
+        //the UsersLifts list when "add lift" button is pushed
+        public UsersLift UserLift { get; set; }
 
         //UsersLifts holds a list of a single users lifts
         public IEnumerable<UsersLift> UsersLifts { get; set; }

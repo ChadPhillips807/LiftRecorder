@@ -34,6 +34,7 @@ namespace LiftRecorder.Controllers
             IEnumerable<Lift> backLifts = _context.Lifts.Where(c => c.LiftType == "Back");
             IEnumerable<Lift> legLifts = _context.Lifts.Where(c => c.LiftType == "Legs");
             IEnumerable<Lift> shoulderLifts = _context.Lifts.Where(c => c.LiftType == "Shoulders");
+            IEnumerable<Lift> armLifts = _context.Lifts.Where(c => c.LiftType == "Arms");
 
             var lifts = _context.Lifts.ToList();
 
@@ -44,6 +45,7 @@ namespace LiftRecorder.Controllers
                 BackLifts = backLifts,
                 LegLifts = legLifts,
                 ShoulderLifts = shoulderLifts,
+                ArmLifts = armLifts,
                 Lifts = lifts
             };
 
