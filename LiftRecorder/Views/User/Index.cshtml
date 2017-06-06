@@ -16,7 +16,7 @@
         @foreach (var appUser in Model)
             {
             <tr>
-                <td>@Html.ActionLink(appUser.FirstName + " " + appUser.LastName, "Details", "User", new { id = appUser.AppUserId }, null)</td>
+                <td>@Html.ActionLink(appUser.FirstName + " " + appUser.LastName, "LogUpdate", "User", new { id = appUser.AppUserId }, null)</td>
                 <td>@appUser.Email</td>
             </tr>
         }
