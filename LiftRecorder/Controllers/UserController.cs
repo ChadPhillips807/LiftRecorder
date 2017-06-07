@@ -25,6 +25,11 @@ namespace LiftRecorder.Controllers
             _context.Dispose();
         }
 
+        /// <summary>
+        /// LogUpdate loads a with tabs that have a lift entry form and the users lift logs
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult LogUpdate(int id)
         {
             // Get user's data
@@ -54,12 +59,23 @@ namespace LiftRecorder.Controllers
         [HttpPost]
         public ActionResult AddLift(LiftLoggerViewModel viewModel)
         {
-            //Add the lift to the List<UsersLifts> object
+            // Set AppUsers Id in UsersLift
+            viewModel.UserLift.AppUserId = viewModel.AppUser.AppUserId;
+
+            // Set DateTime to now for the lift date
+            viewModel.UserLift.LiftDateTime = DateTime.Now;
+
+            // Check if viewModel.UsersLifts is null            
+            if (viewModel.UsersLifts == null)
+                viewModel.UsersLifts = new List<UsersLift>();// If null then initialize it
+
+            // Add the lift to the List<UsersLifts> object
             viewModel.UsersLifts.Add(viewModel.UserLift);
 
-            //Should I make the viewModel.UsersLift = null now?
+            // Should I make the viewModel.UsersLift = null now?
+            viewModel.UserLift = null;
 
-            return View(viewModel); // Return the updated viewModel Object to the view
+            return View("LogUpdate", viewModel); // Return the updated viewModel Object to the view
         }
 
         public ActionResult SaveLift()

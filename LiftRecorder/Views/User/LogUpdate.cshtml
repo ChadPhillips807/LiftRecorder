@@ -54,79 +54,78 @@
             <h3>Select Lift</h3>
             @using (Html.BeginForm("AddLift", "User"))
             {
+                @*<div class="form-group" id="divpass1">
+                    @Html.Label("Chest")
+                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Chest"), "LiftId", "Name"), "", new { @class = "form-control" })
+                </div>
 
-                    <div class="form-group" id="divpass1">
-                        @*@Html.LabelFor(m => m.ChestLifts, "Chest")*@
-                        @*@Html.DropDownListFor((m => m.ChestLifts), new SelectList(Model.ChestLifts, "LiftId", "Name"), "", new { @class = "form-control" })*@
-                        @Html.Label("Chest")
-                        @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Chest"), "LiftId", "Name"), "", new { @class = "form-control" })
-                    </div>
+                <div class="form-group" id="divpass2">
+                    @Html.Label("Back")
+                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Back"), "LiftId", "Name"), "", new { @class = "form-control" })
+                </div>
 
-                    <div class="form-group" id="divpass2">
-                        @*@Html.LabelFor(m => m.BackLifts, "Back")*@
-                        @*@Html.DropDownListFor((m => m.BackLifts), new SelectList(Model.BackLifts, "LiftId", "Name"), "", new { @class = "form-control" })*@
-                        @Html.Label("Back")
-                        @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Back"), "LiftId", "Name"), "", new { @class = "form-control" })
-                    </div>
+                <div class="form-group" id="divpass3">
+                    @Html.Label("Legs")
+                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Legs"), "LiftId", "Name"), "", new { @class = "form-control" })
+                </div>
 
-                    <div class="form-group" id="divpass3">
-                        @*@Html.LabelFor(m => m.LegLifts, "Legs")*@
-                        @*@Html.DropDownListFor((m => m.LegLifts), new SelectList(Model.LegLifts, "LiftId", "Name"), "", new { @class = "form-control" })*@
-                        @*@Html.Label("Legs")
-                        @Html.DropDownListFor(m => m.Lifts, new SelectList(Model.Lifts.Where(m => m.LiftType == "Legs"), "LiftId", "Name"), "", new { @class = "form-control" })*@
-                        @Html.Label("Legs")
-                        @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Legs"), "LiftId", "Name"), "", new { @class = "form-control" })
-                    </div>
+                <div class="form-group" id="divpass4">
+                    @Html.Label("Shoulders")
+                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Shoulders"), "LiftId", "Name"), "", new { @class = "form-control" })
+                </div>
 
-                    <div class="form-group" id="divpass4">
-                        @*@Html.LabelFor(m => m.ShoulderLifts, "Shoulders")*@
-                        @*@Html.DropDownListFor((m => m.ShoulderLifts), new SelectList(Model.ShoulderLifts, "LiftId", "Name"), "", new { @class = "form-control" })*@
-                        @Html.Label("Shoulders")
-                        @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Shoulders"), "LiftId", "Name"), "", new { @class = "form-control" })
-                    </div>
-                    <div class="form-group" id="divpass5">
-                        @*@Html.LabelFor(m => m.ArmLifts, "Biceps/Triceps")*@
-                        @*@Html.DropDownListFor((m => m.ArmLifts), new SelectList(Model.ArmLifts, "LiftId", "Name"), "", new { @class = "form-control" })*@
-                        @Html.Label("Bi's/Tri's")
-                        @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Arms"), "LiftId", "Name"), "", new { @class = "form-control" })
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            @Html.CheckBox("Chest Lifts", false, new { id = "cbChestLifts", onclick = "javascript:checkboxclick();" }) Chest Lifts
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            @Html.CheckBox("Back Lifts", false, new { id = "cbBackLifts", onclick = "javascript:checkboxclick();" }) Back Lifts
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            @Html.CheckBox("Leg Lifts", false, new { id = "cbLegLifts", onclick = "javascript:checkboxclick();" }) Leg Lifts
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            @Html.CheckBox("Shoulder Lifts", false, new { id = "cbShoulderLifts", onclick = "javascript:checkboxclick();" }) Shoulder Lifts
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            @Html.CheckBox("Arm Lifts", false, new { id = "cbArmLifts", onclick = "javascript:checkboxclick();" }) Arm Lifts
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.UserLift.Weight)
-                        @Html.TextBoxFor(m => m.UserLift.Weight, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.UserLift.Reps)
-                        @Html.TextBoxFor(m => m.UserLift.Reps, new { @class = "form-control" })
-                    </div>
-                    @Html.HiddenFor(m => m.AppUser.AppUserId)
-                    @*@Html.HiddenFor(m => m.UserLift.LiftId)*@
-                    <button type="submit" class="btn btn-primary">Add Lift</button>
-                    <button type="submit" class="btn btn-primary">Add Lift</button>
+                <div class="form-group" id="divpass5">
+                    @Html.Label("Bi's/Tri's")
+                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Arms"), "LiftId", "Name"), "", new { @class = "form-control" })
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("Chest Lifts", false, new { id = "cbChestLifts", onclick = "javascript:checkboxclick();" }) Chest Lifts
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("Back Lifts", false, new { id = "cbBackLifts", onclick = "javascript:checkboxclick();" }) Back Lifts
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("Leg Lifts", false, new { id = "cbLegLifts", onclick = "javascript:checkboxclick();" }) Leg Lifts
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("Shoulder Lifts", false, new { id = "cbShoulderLifts", onclick = "javascript:checkboxclick();" }) Shoulder Lifts
+                    </label>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBox("Arm Lifts", false, new { id = "cbArmLifts", onclick = "javascript:checkboxclick();" }) Arm Lifts
+                    </label>
+                </div>*@
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserLift.LiftId)
+                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts, "LiftId", "Name"), "Select Lift", new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserLift.Weight)
+                    @Html.TextBoxFor(m => m.UserLift.Weight, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserLift.Reps)
+                    @Html.TextBoxFor(m => m.UserLift.Reps, new { @class = "form-control" })
+                </div>
+                @Html.HiddenFor(m => m.Lifts)
+                @Html.HiddenFor(m => m.AppUser.AppUserId)
+                @*@Html.HiddenFor(m => m.UserLift.LiftId)*@
+                <button type="submit" class="btn btn-primary">Add Lift</button>
+                <button type="submit" class="btn btn-primary">Add Lift</button>
             }
             <div id="ProductsDiv2">
             </div>
