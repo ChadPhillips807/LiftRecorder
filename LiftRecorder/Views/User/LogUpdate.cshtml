@@ -5,13 +5,7 @@
 
 <h2>@Model.AppUser.FirstName @Model.AppUser.LastName Lift Journal</h2>
 
-@*<div class="nav">
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#pane1" data-toggle="tab">Dashboard</a></li>
-        <li><a href="#pane2" data-toggle="tab">Lift Entry</a></li>
-        <li><a href="#pane3" data-toggle="tab">Previous</a></li>
-    </ul>
-</div>*@
+
 <div class="container">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" class="nav_link" data_id="1" href="#home">Dashboard</a></li>
@@ -21,40 +15,10 @@
 
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            @if (Model.AppUser.UsersLifts == null)
-            {
-                <p>You have no lifts on record.</p>
-            }
-            else
-            {
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Lift</th>
-                            <th>Weight x Reps</th>
-                            @*<th>Reps</th>*@
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var lift in Model.AppUser.UsersLifts)
-                        {
-                            <tr>
-                                <td>@lift.Lift.Name</td>
-                                <td>@lift.Weight x @lift.Reps</td>
-                                @*<td>@lift.Reps</td>*@
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            }
-            <br />
-        </div>
-        <div id="menu1" class="tab-pane fade">
             <h3>Select Lift</h3>
             @using (Html.BeginForm("AddLift", "User"))
             {
-                @*<div class="form-group" id="divpass1">
+                <div class="form-group" id="divpass1">
                     @Html.Label("Chest")
                     @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Chest"), "LiftId", "Name"), "", new { @class = "form-control" })
                 </div>
@@ -107,11 +71,42 @@
                     <label>
                         @Html.CheckBox("Arm Lifts", false, new { id = "cbArmLifts", onclick = "javascript:checkboxclick();" }) Arm Lifts
                     </label>
-                </div>*@
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserLift.LiftId)
-                    @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts, "LiftId", "Name"), "Select Lift", new { @class = "form-control" })
                 </div>
+
+                @*<div class="checkbox">
+                <label>
+                    @Html.CheckBox("Chest Lifts", false, new { id = "cbChestLifts", onclick = "javascript:checkboxclick();" }) Chest Lifts
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBox("Back Lifts", false, new { id = "cbBackLifts", onclick = "javascript:checkboxclick();" }) Back Lifts
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBox("Leg Lifts", false, new { id = "cbLegLifts", onclick = "javascript:checkboxclick();" }) Leg Lifts
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBox("Shoulder Lifts", false, new { id = "cbShoulderLifts", onclick = "javascript:checkboxclick();" }) Shoulder Lifts
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    @Html.CheckBox("Arm Lifts", false, new { id = "cbArmLifts", onclick = "javascript:checkboxclick();" }) Arm Lifts
+                </label>
+            </div>*@
+                @******************************************BelowLineWorks*************************************************@
+                @*<div class="form-group">
+                @Html.LabelFor(m => m.UserLift.LiftId)
+                @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts, "LiftId", "Name"), "Select Lift", new { @class = "form-control" })
+            </div>*@
                 <div class="form-group">
                     @Html.LabelFor(m => m.UserLift.Weight)
                     @Html.TextBoxFor(m => m.UserLift.Weight, new { @class = "form-control" })
@@ -123,12 +118,38 @@
                 </div>
                 @Html.HiddenFor(m => m.Lifts)
                 @Html.HiddenFor(m => m.AppUser.AppUserId)
-                @*@Html.HiddenFor(m => m.UserLift.LiftId)*@
+                @Html.HiddenFor(m => m.UserLift.LiftId)
                 <button type="submit" class="btn btn-primary">Add Lift</button>
-                <button type="submit" class="btn btn-primary">Add Lift</button>
+                <button type="submit" class="btn btn-primary">Submit All</button>
             }
-            <div id="ProductsDiv2">
-            </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h3>HOME</h3>
+            @if (Model.AppUser.UsersLifts == null)
+            {
+                <p>You have no lifts on record.</p>
+            }
+            else
+            {
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Lift</th>
+                            <th>Weight x Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var lift in Model.AppUser.UsersLifts)
+                        {
+                            <tr>
+                                <td>@lift.Lift.Name</td>
+                                <td>@lift.Weight x @lift.Reps</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            <br />
         </div>
         <div id="menu2" class="tab-pane fade">
             <h3>Menu 2</h3>
@@ -138,17 +159,3 @@
         </div>
     </div>
 </div>
-
-@*<script language="javascript" type="text/javascript">
-        function checkboxclick() {
-
-            if ($("#cbChestLifts").is(':checked')) {
-                $("#divpass").show(500);
-            }
-            else {
-               $("#divpass").hide(500);
-            }
-        }
-</script>*@
-
-
