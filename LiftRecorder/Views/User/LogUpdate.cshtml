@@ -18,7 +18,7 @@
             <h3>Select Lift</h3>
             @using (Html.BeginForm("AddLift", "User"))
             {
-                <div class="form-group" id="divpass1">
+                @*<div class="form-group" id="divpass1">
                     @Html.Label("Chest")
                     @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts.Where(m => m.LiftType == "Chest"), "LiftId", "Name"), "", new { @class = "form-control" })
                 </div>
@@ -71,42 +71,15 @@
                     <label>
                         @Html.CheckBox("Arm Lifts", false, new { id = "cbArmLifts", onclick = "javascript:checkboxclick();" }) Arm Lifts
                     </label>
-                </div>
-
-                @*<div class="checkbox">
-                <label>
-                    @Html.CheckBox("Chest Lifts", false, new { id = "cbChestLifts", onclick = "javascript:checkboxclick();" }) Chest Lifts
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    @Html.CheckBox("Back Lifts", false, new { id = "cbBackLifts", onclick = "javascript:checkboxclick();" }) Back Lifts
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    @Html.CheckBox("Leg Lifts", false, new { id = "cbLegLifts", onclick = "javascript:checkboxclick();" }) Leg Lifts
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    @Html.CheckBox("Shoulder Lifts", false, new { id = "cbShoulderLifts", onclick = "javascript:checkboxclick();" }) Shoulder Lifts
-                </label>
-            </div>
-
-            <div class="checkbox">
-                <label>
-                    @Html.CheckBox("Arm Lifts", false, new { id = "cbArmLifts", onclick = "javascript:checkboxclick();" }) Arm Lifts
-                </label>
-            </div>*@
+                </div>*@
+               
                 @******************************************BelowLineWorks*************************************************@
-                @*<div class="form-group">
-                @Html.LabelFor(m => m.UserLift.LiftId)
+
+               
+             <div class="form-group">
+                @Html.Label("Lifts")
                 @Html.DropDownListFor(m => m.UserLift.LiftId, new SelectList(Model.Lifts, "LiftId", "Name"), "Select Lift", new { @class = "form-control" })
-            </div>*@
+            </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.UserLift.Weight)
                     @Html.TextBoxFor(m => m.UserLift.Weight, new { @class = "form-control" })
@@ -120,7 +93,7 @@
                 @Html.HiddenFor(m => m.AppUser.AppUserId)
                 @Html.HiddenFor(m => m.UserLift.LiftId)
                 <button type="submit" class="btn btn-primary">Add Lift</button>
-                <button type="submit" class="btn btn-primary">Submit All</button>
+                @*<button type="submit" class="btn btn-primary">Submit All</button>*@
             }
         </div>
         <div id="menu1" class="tab-pane fade">

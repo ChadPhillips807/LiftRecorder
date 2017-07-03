@@ -45,7 +45,9 @@ namespace LiftRecorder.Controllers
             var viewModel = new LiftLoggerViewModel
             {
                 AppUser = appUser,
-                Lifts = lifts
+                Lifts = lifts,
+                UserLift = new UsersLift(),
+                UsersLifts = new List<UsersLift>()
             };
 
             return View(viewModel);// Pass the ViewModel object to the view
@@ -65,15 +67,18 @@ namespace LiftRecorder.Controllers
             // Set DateTime to now for the lift date
             viewModel.UserLift.LiftDateTime = DateTime.Now;
 
-            // Check if viewModel.UsersLifts is null            
-            if (viewModel.UsersLifts == null)
-                viewModel.UsersLifts = new List<UsersLift>();// If null then initialize it
+            //// Check if viewModel.UsersLifts is null            
+            //if (viewModel.UsersLifts == null)
+            //    viewModel.UsersLifts = new List<UsersLift>();// If null then initialize it
 
-            // Add the lift to the List<UsersLifts> object
-            viewModel.UsersLifts.Add(viewModel.UserLift);
+            //// Add the lift to the List<UsersLifts> object
+            //viewModel.UsersLifts.Add(viewModel.UserLift);
 
-            // Should I make the viewModel.UsersLift = null now?
-            viewModel.UserLift = null;
+            // Add new lift to _context
+            _context.UsersLifts.Add(viewModel.UserLift);
+
+            // Save new lift to the DB
+            _context.SaveChanges();
 
             return View("LogUpdate", viewModel); // Return the updated viewModel Object to the view
         }
